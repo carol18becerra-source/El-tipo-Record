@@ -1,14 +1,12 @@
 package com.example;
 
 public class App {
+
+    static final int XX = 5;
     public static void main(String[] args) {
 
-        // una clase abstracta significa que no se puede instanciar directamente,
-        // es decir que no se pueden crear objetos directamente si no que la clase 
-        // tiene que ser heredada
-        Persona persona = new Persona() {
-            
-        };
+        // una clase final significa: que ninguna otra clase puede heredad de ella
+        Persona persona = new Persona();
         
     }
 }
