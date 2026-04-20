@@ -1,48 +1,29 @@
 package com.example;
 
-public final class Persona {
-    private final String nombre = "Rodrigo";
-    private final double altura = 1.95;
+/*  el record no es un mero atajo para crear una clase que permita crear objetos imutables
+    es decir que una vez creados no se puedan modificar 
 
-    public Persona() {
-    }
+    el record es lo mejor que existe para transportar datos, genera una estructura de datos 
+    que es final es decir que no se puede heredar ademar:
 
-    public String getNombre() {
-        return nombre;
-    }
+    1. las propiedades o campos del record entre parentesis se convierten en private final 
+    por lo cual no se le pueden generar metodos setter para cambiar el valor 
 
-    public double getAltura() {
-        return altura;
-    }
+    2. se generan automaticamente metodos getter pero que no llevan delante la palabra 
+    get sino el nombre de la propiedad o campo del record
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-        long temp;
-        temp = Double.doubleToLongBits(altura);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        return result;
-    }
+    3. se generan para el record los metodos toString, equals y hashCode,
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Persona other = (Persona) obj;
-        if (nombre == null) {
-            if (other.nombre != null)
-                return false;
-        } else if (!nombre.equals(other.nombre))
-            return false;
-        if (Double.doubleToLongBits(altura) != Double.doubleToLongBits(other.altura))
-            return false;
-        return true;
-    }
+    en teoria un record no necesita de lombok en absoluto pero utilizar la anotacion @Builder de lombok
+    nos facilita mucho el trabajo a la hora de instanciar un record porque no estariamos obligados a suministras todos 
+    los parametros que le constructor espera ni tampoco tendriamos que respetar el orden 
+
+
+*/
+public record Persona(
+        String nombre,
+        double altura,
+        String apellido1,
+        String correo) {
 
 }
